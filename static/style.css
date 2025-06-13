@@ -1,8 +1,59 @@
-body {
-    background: #f0f2f6;
+/* Importar fuente moderna */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+html, body, [class*="css"]  {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e0e5ec;
+    color: #333;
 }
+
+.stApp {
+    padding: 2rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #222;
+}
+
 .stButton > button {
-    background: #e0e0e0;
+    background: #e0e5ec;
     border-radius: 12px;
-    box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
+    box-shadow: 5px 5px 15px #a3b1c6, -5px -5px 15px #ffffff;
+    color: #333;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.stButton > button:hover {
+    background: #d1d9e6;
+    box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;
+}
+
+input, .stTextInput > div > div > input {
+    background: #e0e5ec !important;
+    border-radius: 12px !important;
+    border: none !important;
+    padding: 0.5rem 1rem !important;
+    box-shadow: inset 3px 3px 6px #a3b1c6, inset -3px -3px 6px #ffffff !important;
+    color: #333 !important;
+}
+
+.stSidebar {
+    background-color: #dfe6ef;
+    box-shadow: inset 4px 4px 10px #b0b8c4, inset -4px -4px 10px #ffffff;
+}
+
+.sidebar .sidebar-content {
+    padding: 2rem 1rem;
+}
+
+a {
+    color: #2c3e50;
+}
+
+a:hover {
+    color: #1abc9c;
+    text-decoration: none;
 }
