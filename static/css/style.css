@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #e0e5ec;
+  color: #333;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background: #d1d9e6;
+  padding: 1rem 2rem;
+  box-shadow: 4px 4px 8px #c1c9d6, -4px -4px 8px #fff;
+}
+
+.navbar .logo {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.navbar .links a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.navbar a:hover {
+  color: #1abc9c;
+}
+
+.main-container {
+  padding: 3rem 2rem;
+}
+
+.login-card {
+  max-width: 350px;
+  margin: 5rem auto;
+  background: #e0e5ec;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px #c1c9d6, -10px -10px 20px #fff;
+  text-align: center;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.75rem 0;
+  border: none;
+  border-radius: 10px;
+  background: #f0f0f3;
+  box-shadow: inset 2px 2px 5px #ccc, inset -2px -2px 5px #fff;
+}
+
+.login-card button {
+  padding: 0.7rem 2rem;
+  background: #d1d9e6;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px #c1c9d6, -5px -5px 10px #fff;
+}
+
+.login-card button:hover {
+  background: #c3cad5;
+}
+
+.error {
+  color: crimson;
+  font-size: 0.9rem;
+}
+
+.subnav {
+  list-style-type: none;
+  padding: 0;
+}
+
+.subnav li {
+  margin: 0.5rem 0;
+}
+
+.subnav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #2c3e50;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  border-radius: 10px;
+  background: #f0f0f3;
+  box-shadow: 3px 3px 6px #ccc, -3px -3px 6px #fff;
+}
+
+.subnav a:hover {
+  background: #e2e6ea;
+}
