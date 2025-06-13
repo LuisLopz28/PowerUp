@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>PowerUp</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <meta charset="UTF-8">
+    <title>PowerUp | Soluciones Digitales</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <nav>
-        <a href="/">Inicio</a>
-        <a href="/powerbi">Power BI</a>
-        <a href="/analisis">Análisis</a>
-        <a href="/simulador">Simulador</a>
-        <a href="/estado">Estado Resultado</a>
-        <a href="/auth/login">Login</a>
-    </nav>
+    <header>
+        <h1>🚀 PowerUp</h1>
+        <nav>
+            <a href="{{ url_for('home.index') }}">Inicio</a>
+            <a href="{{ url_for('powerbi.index') }}">Power BI</a>
+            <a href="{{ url_for('analisis.index') }}">Análisis</a>
+            <a href="{{ url_for('simulador.index') }}">Simulador</a>
+            <a href="{{ url_for('estado.index') }}">Estado</a>
+            <a href="{{ url_for('auth.login') }}">Login</a>
+        </nav>
+    </header>
     <main>
         {% block content %}{% endblock %}
     </main>
+    <footer>
+        <p>&copy; 2025 PowerUp</p>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>📈 Análisis de Datos</h2>
+<p>Cargue su dataset y lo ayudamos a descubrir información valiosa con técnicas estadísticas y visuales.</p>
+
+<form method="post" enctype="multipart/form-data">
+    <label for="file">Suba su archivo (.csv, .xlsx):</label><br>
+    <input type="file" name="file" required><br><br>
+    <input type="submit" value="Analizar">
+</form>
+
+{% if resultados %}
+    <h3>Resultados:</h3>
+    <pre>{{ resultados }}</pre>
+{% endif %}
+{% endblock %}

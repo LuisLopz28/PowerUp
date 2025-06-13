@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>🧮 Simulador de Facturación</h2>
+<p>Ingrese los valores para simular ingresos y costos:</p>
+
+<form method="post">
+    <label for="precio">Precio unitario:</label>
+    <input type="number" name="precio" required><br><br>
+
+    <label for="cantidad">Cantidad vendida:</label>
+    <input type="number" name="cantidad" required><br><br>
+
+    <label for="costo">Costo unitario:</label>
+    <input type="number" name="costo" required><br><br>
+
+    <input type="submit" value="Calcular">
+</form>
+
+{% if resultado %}
+    <h3>Resultado:</h3>
+    <ul>
+        <li>Ingresos: {{ resultado.ingresos }}</li>
+        <li>Costos: {{ resultado.costos }}</li>
+        <li>Utilidad: {{ resultado.utilidad }}</li>
+    </ul>
+{% endif %}
+{% endblock %}
