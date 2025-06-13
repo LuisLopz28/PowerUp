@@ -2,26 +2,24 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>PowerUp | Soluciones Digitales</title>
+    <title>PowerUp</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>🚀 PowerUp</h1>
-        <nav>
-            <a href="{{ url_for('home.index') }}">Inicio</a>
-            <a href="{{ url_for('powerbi.index') }}">Power BI</a>
-            <a href="{{ url_for('analisis.index') }}">Análisis</a>
-            <a href="{{ url_for('simulador.index') }}">Simulador</a>
-            <a href="{{ url_for('estado.index') }}">Estado</a>
-            <a href="{{ url_for('auth.login') }}">Login</a>
-        </nav>
-    </header>
-    <main>
+    <div class="sidebar">
+        <h2>🚀 PowerUp</h2>
+        <ul>
+            <li><a href="{{ url_for('home.index') }}">🏠 Inicio</a></li>
+            <li><a href="{{ url_for('powerbi.index') }}">📊 Power BI</a></li>
+            <li><a href="{{ url_for('analisis.index') }}">📈 Análisis</a></li>
+            <li><a href="{{ url_for('simulador.index') }}">🧮 Simulador</a></li>
+            <li><a href="{{ url_for('estado.index') }}">📑 Estado</a></li>
+            <li><a href="{{ url_for('auth.logout') }}">🔓 Cerrar sesión</a></li>
+        </ul>
+    </div>
+    <div class="content">
         {% block content %}{% endblock %}
-    </main>
-    <footer>
-        <p>&copy; 2025 PowerUp</p>
-    </footer>
+    </div>
 </body>
 </html>
