@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>PowerUp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>🚀 PowerUp</h2>
+        <ul>
+            <li><a href="{{ url_for('home') }}">🏠 Inicio</a></li>
+            <li><a href="{{ url_for('powerbi.index') }}">📊 Power BI</a></li>
+            <li><a href="{{ url_for('logout') }}">🔓 Cerrar sesión</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
