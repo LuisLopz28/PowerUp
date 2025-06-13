@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="card p-4">
+    <h1>Dashboard</h1>
+    <p class="lead">Bienvenido, {{ user.name }}!</p>
+    <div class="card p-3 mb-3">
+        <h3>Tu información</h3>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>ID de usuario:</strong> {{ user.id }}</p>
+    </div>
+    <a href="{{ url_for('logout') }}" class="btn btn-danger">Cerrar Sesión</a>
+</div>
+{% endblock %}
