@@ -11,7 +11,7 @@ from flask import session, redirect, url_for, request
 def requerir_login():
     rutas_publicas = ['login', 'static']
     if not session.get('usuario') and request.endpoint not in rutas_publicas:
-        return redirect(url_for('login'))
+        return redirect(url_for('auth.login'))
 
 # Registra los blueprints
 app.register_blueprint(auth.bp)
