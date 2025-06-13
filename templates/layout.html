@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PowerUp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Inicio</a>
+        <a href="/powerbi">Power BI</a>
+        <a href="/analisis">Análisis</a>
+        <a href="/simulador">Simulador</a>
+        <a href="/estado">Estado Resultado</a>
+        <a href="/auth/login">Login</a>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
