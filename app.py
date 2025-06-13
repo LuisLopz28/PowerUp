@@ -1,22 +1,21 @@
 from flask import Flask
-from routes import home, powerbi, analisis, simulador, estado, auth
-from flask import redirect, url_for, session, request
+from routes import home, auth  # importa solo los módulos que existen
+
+app = Flask(__name__)
+app.secret_key = 'clave_secreta_super_segura'
+
+# Login obligatorio antes de cualquier ruta (excepto login)
+from flask import session, redirect, url_for, request
 
 @app.before_request
-def require_login():
-    rutas_libres = ['auth.login', 'auth.register', 'static']  # si tienes un registro
-    if 'user' not in session and request.endpoint not in rutas_libres:
-        return redirect(url_for('auth.login'))
-app = Flask(__name__)
-app.secret_key = 'tu_clave_secreta'
+def requerir_login():
+    rutas_publicas = ['login', 'static']
+    if not session.get('usuario') and request.endpoint not in rutas_publicas:
+        return redirect(url_for('login'))
 
-# Registrar blueprints (rutas separadas)
-app.register_blueprint(home.bp)
-app.register_blueprint(powerbi.bp)
-app.register_blueprint(analisis.bp)
-app.register_blueprint(simulador.bp)
-app.register_blueprint(estado.bp)
+# Registra los blueprints
 app.register_blueprint(auth.bp)
+app.register_blueprint(home.bp)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
