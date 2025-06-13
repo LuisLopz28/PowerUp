@@ -1,21 +1,38 @@
-from flask import Flask
-from routes import home, auth  # importa solo los módulos que existen
+from flask import Flask, render_template, redirect, url_for, request, session
+from functools import wraps
 
 app = Flask(__name__)
-app.secret_key = 'clave_secreta_super_segura'
+app.secret_key = 'tu_clave_secreta'
 
-# Login obligatorio antes de cualquier ruta (excepto login)
-from flask import session, redirect, url_for, request
+# Decorador para login
+def login_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'usuario' in session:
+            return f(*args, **kwargs)
+        else:
+            return redirect(url_for('login'))
+    return wrap
 
-@app.before_request
-def requerir_login():
-    rutas_publicas = ['login', 'static']
-    if not session.get('usuario') and request.endpoint not in rutas_publicas:
-        return redirect(url_for('auth.login'))
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        usuario = request.form['usuario']
+        contraseña = request.form['contraseña']
+        # Validación ficticia
+        if usuario == 'admin' and contraseña == '1234':
+            session['usuario'] = usuario
+            return redirect(url_for('home'))
+        else:
+            return render_template('login.html', error='Credenciales inválidas')
+    return render_template('login.html')
 
-# Registra los blueprints
-app.register_blueprint(auth.bp)
-app.register_blueprint(home.bp)
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
 
-if __name__ == "__main__":
-    app.run()
+@app.route('/')
+@login_required
+def home():
+    return render_template('home.html')
