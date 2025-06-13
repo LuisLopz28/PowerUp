@@ -10,11 +10,11 @@
     <div class="sidebar">
         <h2>🚀 PowerUp</h2>
         <ul>
-            <li><a href="{{ url_for('home.index') }}">🏠 Inicio</a></li>
-            <li><a href="{{ url_for('powerbi.index') }}">📊 Power BI</a></li>
-            <li><a href="{{ url_for('analisis.index') }}">📈 Análisis</a></li>
-            <li><a href="{{ url_for('simulador.index') }}">🧮 Simulador</a></li>
-            <li><a href="{{ url_for('estado.index') }}">📑 Estado</a></li>
+            <a href="{{ url_for('home') }}">🏠 Inicio</a>
+            <li><a href="{{ url_for('powerbi') }}">📊 Power BI</a></li>
+            <li><a href="{{ url_for('analisis') }}">📈 Análisis</a></li>
+            <li><a href="{{ url_for('simulador') }}">🧮 Simulador</a></li>
+            <li><a href="{{ url_for('estado') }}">📑 Estado</a></li>
             <li><a href="{{ url_for('auth.logout') }}">🔓 Cerrar sesión</a></li>
         </ul>
     </div>
