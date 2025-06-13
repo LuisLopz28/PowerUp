@@ -17,8 +17,8 @@ def login_required(f):
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        usuario = request.form['usuario']
-        contraseña = request.form['contraseña']
+        usuario = request.form.get('usuario')
+        contraseña = request.form.get('contraseña')
         # Validación ficticia
         if usuario == 'admin' and contraseña == '1234':
             session['usuario'] = usuario
