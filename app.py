@@ -1,9 +1,12 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template
 from config import DevelopmentConfig
+from routes.simulador import simulador_bp  # Importamos el blueprint
 
 app = Flask(__name__)
 app.config.from_object(DevelopmentConfig)
 
+# Registramos el blueprint del simulador
+app.register_blueprint(simulador_bp)
 
 @app.route('/')
 def index():
@@ -16,14 +19,6 @@ def login():
 @app.route('/contacto')
 def contacto():
     return render_template('contacto.html')
-
-@app.route('/simulador', methods=['GET', 'POST'])
-def simulador():
-    resultado = None
-    if request.method == 'POST':
-        numero = int(request.form['numero'])
-        resultado = numero * 10  # simulación simple
-    return render_template('simulador.html', resultado=resultado)
 
 if __name__ == '__main__':
     app.run(debug=True)
