@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: powerup
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn powerup_project.wsgi"
+    staticPublishPath: static

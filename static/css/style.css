@@ -1,0 +1,16 @@
+body {
+  font-family: Arial;
+  margin: 2rem;
+  background: #e0e5ec;
+  color: #333;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  background: #cfd8dc;
+  padding: 1rem;
+  border-radius: 10px;
+}
+main {
+  margin-top: 2rem;
+}
