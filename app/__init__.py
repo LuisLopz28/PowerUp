@@ -12,7 +12,7 @@ def create_app():
     login_manager.user_loader(load_user)
 
     from app.routes.auth_routes import auth_bp
-    from app.routes.main_routes import main_bp
+    from app.routes.main import main_bp
     from app.routes.soluciones_routes import soluciones_bp
 
     app.register_blueprint(auth_bp)
