@@ -1,21 +1,20 @@
 from flask import Flask
-from flask_login import LoginManager
+from app.extensions import login_manager
 from app.services.auth import load_user
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object("config.Config")
 
-    login_manager = LoginManager()
+    # Inicializar LoginManager
     login_manager.login_view = "auth.login"
     login_manager.init_app(app)
 
-    # Aquí registra el user_loader correctamente
     @login_manager.user_loader
-    def user_loader(user_id):
+    def user_loader_callback(user_id):
         return load_user(user_id)
 
-    # Blueprints
+    # Registrar Blueprints
     from app.routes.auth import auth_bp
     from app.routes.main import main_bp
     from app.routes.soluciones_routes import soluciones_bp
