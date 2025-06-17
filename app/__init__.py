@@ -10,11 +10,12 @@ def create_app():
     login_manager.login_view = "auth.login"
     login_manager.init_app(app)
 
-    # REGISTRAMOS EL CARGADOR DE USUARIOS CORRECTAMENTE COMO DECORADOR
+    # Aquí registra el user_loader correctamente
     @login_manager.user_loader
     def user_loader(user_id):
         return load_user(user_id)
 
+    # Blueprints
     from app.routes.auth import auth_bp
     from app.routes.main import main_bp
     from app.routes.soluciones_routes import soluciones_bp

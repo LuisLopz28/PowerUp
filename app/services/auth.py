@@ -9,5 +9,5 @@ def authenticate(username, password):
 
 def load_user(user_id):
     if user_id in users:
-        return User(user_id)
+        return User.get(user_id)
     return None
